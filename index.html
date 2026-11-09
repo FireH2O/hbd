@@ -1197,8 +1197,10 @@ async function flyAway() {
 }
 
 /* ---- ending ---- */
+const DONE_KEY = 'hbd-done-v1';
 async function ending(instant) {
   scene = 'end';
+  if (!TEST) { try { localStorage.setItem(DONE_KEY, String(Date.now())); } catch (e) {} }
   Snd.calm();
   document.body.classList.remove('bright'); document.body.classList.add('ending'); theme = 'end';
   $('meta[name=theme-color]').setAttribute('content', '#080f33');
@@ -1270,6 +1272,12 @@ if (/Instagram|FBAN|FBAV/i.test(navigator.userAgent)) {
 function start() {
   const jump = TEST ? qs.get('scene') : null;
   heroSet(anchors.lid);
+  let done = false; try { done = !!localStorage.getItem(DONE_KEY); } catch (e) {}
+  if (!TEST && done) {
+    // one-time surprise: she already reached the end on this phone
+    $('#cd').classList.add('hide'); $('#open').classList.add('hide');
+    return ending(true);
+  }
   if (TEST) {
     const bar = $('#test'); bar.classList.add('on');
     const scenes = ['countdown', 'open', 'ribbon2', 'cele', 'wish', 'fly', 'end'];
@@ -1279,6 +1287,7 @@ function start() {
       bar.appendChild(b);
     }
     const b5 = document.createElement('button'); b5.textContent = '5s'; b5.onclick = e => { e.stopPropagation(); location.search = 'test=1&t=5'; }; bar.appendChild(b5);
+    const br = document.createElement('button'); br.textContent = 'reset once'; br.onclick = e => { e.stopPropagation(); try { localStorage.removeItem(DONE_KEY); } catch (x) {} br.textContent = 'reset ✓'; }; bar.appendChild(br);
     const bh = document.createElement('button'); bh.textContent = 'hide'; bh.onclick = e => { e.stopPropagation(); bar.classList.remove('on'); }; bar.appendChild(bh);
     if (/\[/.test(CONFIG.BLESSING_TH + CONFIG.BLESSING_EN)) { const w = document.createElement('span'); w.className = 'warn'; w.textContent = '⚠ blessing placeholders'; bar.appendChild(w); }
   }
