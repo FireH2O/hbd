@@ -377,11 +377,26 @@ body.bright #mute{background:rgba(80,110,190,.25)}
           <stop offset="0" stop-color="#fff0f7"/><stop offset=".5" stop-color="#ffc4de"/><stop offset="1" stop-color="#ec95bf"/>
         </radialGradient>
         <linearGradient id="gRibV" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="#5dbdf2"/><stop offset=".45" stop-color="#d9f3ff"/><stop offset="1" stop-color="#4aaee8"/>
+          <stop offset="0" stop-color="#3f9fe0"/><stop offset=".18" stop-color="#86cffb"/><stop offset=".42" stop-color="#f4fbff"/><stop offset=".56" stop-color="#bfe8ff"/><stop offset=".82" stop-color="#68c2f4"/><stop offset="1" stop-color="#3a98dc"/>
         </linearGradient>
         <linearGradient id="gRibH" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#5dbdf2"/><stop offset=".45" stop-color="#d9f3ff"/><stop offset="1" stop-color="#4aaee8"/>
+          <stop offset="0" stop-color="#3f9fe0"/><stop offset=".18" stop-color="#86cffb"/><stop offset=".42" stop-color="#f4fbff"/><stop offset=".56" stop-color="#bfe8ff"/><stop offset=".82" stop-color="#68c2f4"/><stop offset="1" stop-color="#3a98dc"/>
         </linearGradient>
+        <linearGradient id="gGlint" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".44" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset=".56" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          <animateTransform attributeName="gradientTransform" type="translate" values="-1 -1;1 1;1 1" keyTimes="0;.6;1" dur="3.4s" repeatCount="indefinite"/>
+        </linearGradient>
+        <radialGradient id="gPearl" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ffe6f2"/><stop offset="1" stop-color="#e4c8ff"/></radialGradient>
+        <pattern id="gPaper" width="46" height="46" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+          <path d="M10 4 V16 M4.8 7 L15.2 13 M4.8 13 L15.2 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".75"/>
+          <path d="M34 15 C27.5 10 29.5 5.5 34 8.8 C38.5 5.5 40.5 10 34 15 Z" fill="#fff" opacity=".6"/>
+          <g fill="#c4ecff" opacity=".9">
+            <ellipse cx="20.5" cy="31" rx="4" ry="3" transform="rotate(-30 20.5 31)"/><ellipse cx="27.5" cy="31" rx="4" ry="3" transform="rotate(30 27.5 31)"/>
+            <ellipse cx="21.6" cy="35.8" rx="2.5" ry="1.9"/><ellipse cx="26.4" cy="35.8" rx="2.5" ry="1.9"/>
+          </g>
+          <rect x="23.4" y="29" width="1.2" height="8.5" rx=".6" fill="#fff"/>
+          <circle cx="41" cy="40" r="1.4" fill="#fff" opacity=".7"/><circle cx="5" cy="30" r="1.1" fill="#fff" opacity=".7"/><circle cx="40" cy="26" r="1" fill="#fff" opacity=".6"/>
+        </pattern>
         <linearGradient id="gTail" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stop-color="#cdeeff"/><stop offset="1" stop-color="#5bbcf3"/>
         </linearGradient>
@@ -394,25 +409,35 @@ body.bright #mute{background:rgba(80,110,190,.25)}
       <g id="shake">
         <g id="bodyG">
           <rect x="34" y="150" width="232" height="182" rx="38" fill="url(#gBody)"/>
+          <rect x="34" y="150" width="232" height="182" rx="38" fill="url(#gPaper)"/>
           <!-- plush puffs + stitches -->
           <ellipse cx="92" cy="186" rx="40" ry="18" fill="#fff" opacity=".22"/>
           <path d="M52 300 Q150 320 248 300" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/>
           <path d="M50 176 Q150 162 250 176" stroke="#fff" stroke-opacity=".3" stroke-width="2" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/>
           <ellipse id="hole" cx="150" cy="160" rx="104" ry="15" fill="url(#gHole)" opacity="0"/>
-          <rect id="band1" x="34" y="224" width="232" height="30" fill="url(#gRibH)"/>
-          <rect id="band2b" x="135" y="150" width="30" height="182" fill="url(#gRibV)"/>
+          <g id="band1"><rect x="34" y="224" width="232" height="30" fill="url(#gRibH)"/><rect x="34" y="224" width="232" height="30" fill="url(#gGlint)"/></g>
+          <g id="band2b"><rect x="135" y="150" width="30" height="182" fill="url(#gRibV)"/><rect x="135" y="150" width="30" height="182" fill="url(#gGlint)"/></g>
         </g>
         <ellipse id="leak" cx="150" cy="158" rx="132" ry="34" fill="url(#gLeak)" opacity="0" filter="url(#blur3)"/>
         <g id="lidG">
           <rect x="20" y="110" width="260" height="56" rx="27" fill="url(#gLid)"/>
+          <rect x="20" y="110" width="260" height="56" rx="27" fill="url(#gPaper)"/>
           <ellipse cx="80" cy="124" rx="38" ry="8" fill="#fff" opacity=".35"/>
           <path d="M34 156 Q150 168 266 156" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/>
-          <rect id="band2l" x="135" y="110" width="30" height="56" fill="url(#gRibV)"/>
+          <g id="band2l"><rect x="135" y="110" width="30" height="56" fill="url(#gRibV)"/><rect x="135" y="110" width="30" height="56" fill="url(#gGlint)"/></g>
           <g id="bow">
             <path d="M150 108 C120 70 78 74 86 98 C92 116 128 114 150 108 Z" fill="url(#gTail)" stroke="#e8f7ff" stroke-width="2"/>
             <path d="M150 108 C180 70 222 74 214 98 C208 116 172 114 150 108 Z" fill="url(#gTail)" stroke="#e8f7ff" stroke-width="2"/>
             <path d="M150 106 C132 88 106 88 104 98" stroke="#fff" stroke-opacity=".6" stroke-width="2" fill="none"/>
             <path d="M150 106 C168 88 194 88 196 98" stroke="#fff" stroke-opacity=".6" stroke-width="2" fill="none"/>
+            <path d="M150 108 C120 70 78 74 86 98 C92 116 128 114 150 108 Z" fill="url(#gGlint)"/>
+            <path d="M150 108 C180 70 222 74 214 98 C208 116 172 114 150 108 Z" fill="url(#gGlint)"/>
+            <g id="tag">
+              <path d="M150 114 L150 133" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M132 128 L168 128 L177 136 L177 151 Q177 155 173 155 L127 155 Q123 155 123 151 L123 136 Z" fill="#fffaf4" stroke="#ffc9e2" stroke-width="1.6"/>
+              <circle cx="150" cy="134" r="2.3" fill="#ffb3d6"/>
+              <text data-t="TAG_TEXT" x="150" y="149" text-anchor="middle" font-family="Fredoka, Mali, sans-serif" font-weight="600" font-size="10" fill="#ff79b4"></text>
+            </g>
           </g>
         </g>
         <g id="tail1" class="tail">
@@ -427,7 +452,7 @@ body.bright #mute{background:rgba(80,110,190,.25)}
           <path class="tailHi" d="" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
           <circle class="grab" r="44"/>
         </g>
-        <circle id="knot" cx="150" cy="108" r="13" fill="url(#gRibV)" stroke="#e8f7ff" stroke-width="2"/>
+        <g id="knot"><circle cx="150" cy="108" r="13" fill="url(#gRibV)" stroke="#e8f7ff" stroke-width="2"/><circle cx="150" cy="108" r="13" fill="url(#gGlint)"/><circle cx="146.5" cy="104.5" r="4.6" fill="url(#gPearl)"/></g>
       </g>
     </svg>
   </div>
@@ -489,6 +514,7 @@ const CONFIG = {
   // ---- Every line she sees. Leave a line as '' to hide it. \n = new line. ----
   // Countdown
   CD_HEADING: 'for Snow',
+  TAG_TEXT: 'for Snow',          // little gift tag hanging from the bow
   CD_LINE_TH: 'รอสักครู่นะค้าบบ',
   CD_LINE_EN: 'Something is waiting for you…',
 
@@ -569,7 +595,7 @@ function tween(dur, fn, ease = E.io) {
 }
 
 /* ---------- DOM refs ---------- */
-const app = $('#app'), cv = $('#fx'), ctx = cv.getContext('2d');
+const app = $('#app'), cv = $('#fx'), ctx = cv.getContext('2d'), tagEl = $('#tag');
 const boxWrap = $('#boxWrap'), boxSvg = $('#box'), heroEl = $('#hero');
 let W = 0, H = 0, DPR = 1;
 
@@ -1159,7 +1185,8 @@ async function completeTail(i) {
   tween(550, (e) => { T.end = { x: s.x + dx / L * 320 * e, y: s.y + dy / L * 320 * e - 60 * e }; T.op = 1 - e; T.w = 1 - e * 0.5; }, E.out);
   if (i === 1) {
     const b = $('#band1');
-    tween(600, e => { b.setAttribute('x', 34 + 116 * e); b.setAttribute('width', 232 * (1 - e)); b.style.opacity = 1 - e; });
+    b.style.transformOrigin = '150px 239px';
+    tween(600, e => { b.style.transform = `scaleX(${1 - e})`; b.style.opacity = 1 - e; });
     $('#stepTxt').textContent = CONFIG.RIBBON_2;
     heroMode(null);
     await sleep(500);
@@ -1519,6 +1546,11 @@ function frame(now) {
   } else if (scene === 'reveal' || scene === 'cele' || scene === 'cake' || scene === 'wish' || scene === 'fly') {
     leak.style.opacity = 0.65 + 0.2 * Math.sin(now / 500);
   } else leak.style.opacity = 0;
+  if (scene === 'countdown' || scene === 'wake' || scene === 'open') {
+    let a = Math.sin(now / 900) * 4;
+    if (drag) { const pr = tails[drag.i].prog; a += Math.sin(now / 90) * 12 * pr + (drag.i === 1 ? -1 : 1) * 14 * pr; }
+    tagEl.setAttribute('transform', `rotate(${a.toFixed(2)} 150 114)`);
+  }
   updateFx(dt, now);
   updateHero(now);
   requestAnimationFrame(frame);
