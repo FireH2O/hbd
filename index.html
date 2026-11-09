@@ -77,7 +77,7 @@ body.ending #bgEnd{opacity:1}
 #days{font-size:16px;color:#cfe6ff;margin-top:14px;min-height:1px}
 
 #open{top:calc(var(--st) + 10%)}
-#open h2{margin:0;font-family:'Mali';font-weight:600;font-size:clamp(28px,8.6vw,38px);color:#f2f9ff;
+#open h2{margin:0;padding:0 12px;font-family:'Mali';font-weight:600;font-size:clamp(28px,8.6vw,38px);color:#f2f9ff;
   text-shadow:0 0 14px rgba(127,211,255,.8)}
 #open .en{font-size:20px;color:var(--sky);margin-top:4px;font-weight:600}
 #open .hint{margin-top:18px;font-size:15px;color:#cfe6ff;opacity:.9;line-height:1.5}
@@ -98,12 +98,12 @@ body.ending #bgEnd{opacity:1}
   78%{transform:translateY(-5px) scale(.96)}100%{opacity:1;transform:none}}
 #hb.idle .l{opacity:1;animation:bob 2.6s ease-in-out infinite;animation-delay:calc(var(--i) * -160ms)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-#thline{margin-top:10px;font-family:'Mali';font-weight:600;font-size:clamp(20px,6.4vw,28px);color:#3b4a8c;opacity:0;transform:translateY(10px)}
+#thline{margin-top:10px;padding:0 16px;white-space:pre-line;line-height:1.35;font-family:'Mali';font-weight:600;font-size:clamp(19px,6vw,26px);color:#3b4a8c;opacity:0;transform:translateY(10px)}
 #thline.on{opacity:1;transform:none}
 #bless{margin:18px auto 0;width:min(86vw,380px);padding:16px 18px;border-radius:22px;background:rgba(255,255,255,.55);
   border:1.5px solid rgba(255,255,255,.85);box-shadow:0 10px 30px rgba(120,150,220,.25);color:var(--ink);opacity:0;transform:translateY(14px)}
 #bless.on{opacity:1;transform:none}
-#bless .bt{font-family:'Mali';font-size:17px;line-height:1.6}
+#bless .bt{font-family:'Mali';font-size:17px;line-height:1.6;white-space:pre-line}
 #bless .be{font-size:15px;line-height:1.5;margin-top:8px;color:#4a5795}
 .btn{pointer-events:auto;display:inline-flex;flex-direction:column;align-items:center;gap:1px;border:0;cursor:pointer;
   padding:12px 26px;border-radius:99px;font:inherit;color:#fff;
@@ -139,7 +139,7 @@ body.ending #bgEnd{opacity:1}
   outline:none;-webkit-user-select:text;user-select:text;touch-action:auto;-webkit-appearance:none}
 #wish:focus{border-color:#ff9fcb;background:rgba(255,255,255,.85)}
 .paper .priv{font-size:12px;color:#7b86b8;margin-top:10px;line-height:1.5}
-.paper .priv .th{display:block;font-size:12.5px}
+.paper .priv .th{display:block;font-size:12.5px;white-space:pre-line}
 #send{margin-top:14px}
 
 /* fold + envelope */
@@ -250,9 +250,9 @@ body.bright #mute{background:rgba(80,110,190,.25)}
 
   <!-- countdown -->
   <div class="layer fade" id="cd">
-    <div class="for">for Snow</div>
-    <div class="sub th">อีกนิดเดียวนะ…</div>
-    <div class="sub2">Something is waiting for you…</div>
+    <div class="for" data-t="CD_HEADING"></div>
+    <div class="sub th" data-t="CD_LINE_TH"></div>
+    <div class="sub2" data-t="CD_LINE_EN"></div>
     <div id="digits">
       <div class="u"><div class="n" id="dh">00</div><div class="lb"><span class="th">ชั่วโมง</span>hours</div></div>
       <div class="c">:</div>
@@ -265,10 +265,10 @@ body.bright #mute{background:rgba(80,110,190,.25)}
 
   <!-- let's open -->
   <div class="layer fade hide" id="open">
-    <h2>มาเปิดกล่องกันเถอะ</h2>
-    <div class="en">Let's open it!</div>
-    <div class="hint"><span class="th">จับปลายริบบิ้นที่เรืองแสง แล้วดึงออก</span><br>Hold a glowing ribbon tail and pull it away <span class="arr">⟵</span></div>
-    <div class="step th" id="stepTxt">ริบบิ้นเส้นที่ 1 · ribbon 1 of 2</div>
+    <h2 data-t="OPEN_TITLE_TH"></h2>
+    <div class="en" data-t="OPEN_TITLE_EN"></div>
+    <div class="hint"><span class="th" data-t="HINT_TH"></span><br><span data-t="HINT_EN"></span> <span class="arr">⟵</span></div>
+    <div class="step th" id="stepTxt"></div>
   </div>
 
   <!-- gift box -->
@@ -342,7 +342,7 @@ body.bright #mute{background:rgba(80,110,190,.25)}
     <h1 id="hb" aria-label="HAPPY BIRTHDAY"></h1>
     <div id="thline" class="fade"></div>
     <div id="bless" class="fade"><div class="bt"></div><div class="be"></div></div>
-    <button class="btn fade" id="more"><span class="t1">ยังมีอีกนะ ✨</span><span class="t2">there's something more</span></button>
+    <button class="btn fade" id="more"><span class="t1" data-t="MORE_TH"></span><span class="t2" data-t="MORE_EN"></span></button>
   </div>
 
   <div class="popper" id="popL"><svg viewBox="0 0 64 84"><path d="M32 82 L10 14 Q32 2 54 14 Z" fill="#ffb3d6" stroke="#fff" stroke-width="2.5"/><path d="M18 40 L46 30 M22 56 L42 49 M26 70 L38 66" stroke="#7fd3ff" stroke-width="5" stroke-linecap="round"/><ellipse cx="32" cy="14" rx="22" ry="7" fill="#ffe1ef" stroke="#fff" stroke-width="2"/></svg></div>
@@ -354,8 +354,8 @@ body.bright #mute{background:rgba(80,110,190,.25)}
       <div class="pt" id="wpTh"></div>
       <div class="pe" id="wpEn"></div>
       <textarea id="wish" maxlength="600" rows="4" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
-      <div class="priv"><span class="th">คำอธิษฐานนี้อยู่แค่ในโทรศัพท์ของเธอเท่านั้น ไม่ถูกส่งไปไหน</span>Your wish stays on your phone. It's never sent anywhere.</div>
-      <button class="btn" id="send"><span class="t1">ส่งคำอธิษฐานขึ้นฟ้า 🌟</span><span class="t2">send my wish to the sky</span></button>
+      <div class="priv"><span class="th" data-t="PRIVACY_TH"></span><span data-t="PRIVACY_EN"></span></div>
+      <button class="btn" id="send"><span class="t1" data-t="SEND_TH"></span><span class="t2" data-t="SEND_EN"></span></button>
     </div>
   </div>
 
@@ -363,7 +363,7 @@ body.bright #mute{background:rgba(80,110,190,.25)}
   <div class="layer fade hide" id="end">
     <div class="e1" id="endTh"></div>
     <div class="e2" id="endEn"></div>
-    <div class="e3">❄ for Snow ❄</div>
+    <div class="e3" data-t="SIGNOFF"></div>
   </div>
 
   <canvas id="fx"></canvas>
@@ -388,19 +388,50 @@ const CONFIG = {
   TARGET: '2026-11-10T09:00:00+07:00',
   NAME: 'Snow',
 
-  // TODO: replace both placeholder blessings before sending!
-  BLESSING_TH: '✏️ [ใส่คำอวยพรภาษาไทยตรงนี้]',
-  BLESSING_EN: '✏️ [Put your English blessing here]',
+  // ---- Every line she sees. Leave a line as '' to hide it. \n = new line. ----
+  // Countdown
+  CD_HEADING: 'for Snow',
+  CD_LINE_TH: 'รอสักครู่นะค้าบบ',
+  CD_LINE_EN: 'Something is waiting for you…',
 
-  THAI_LINE: 'สุขสันต์วันเกิดนะ Snow 💙',
+  // Opening the box
+  OPEN_TITLE_TH: 'ลองเปิดกล่องดูสิคับ~',
+  OPEN_TITLE_EN: "Let's open it!",
+  HINT_TH: 'จับปลายริบบิ้นที่เรืองแสง แล้วดึงออก',
+  HINT_EN: 'Hold a glowing ribbon tail and pull it away',
+  RIBBON_1: 'ริบบิ้นเส้นที่ 1 · ribbon 1 of 2',
+  RIBBON_2: 'ริบบิ้นเส้นที่ 2 · ribbon 2 of 2',
 
-  WISH_PROMPT_TH: 'อธิษฐานสิ',
+  // Celebration
+  THAI_LINE: 'สุขสันต์วันเกิดค้าบ\nพี่โนคนสวยย~ 🫶',
+  BLESSING_TH: 'เป็นครั้งแรกที่ได้แฮปปี้เบิร์ดเดย์\nพี่โนเลยนะเนี่ย\nขอให้มีแต่ความสุข สุขภาพแข็งแรง\nหาเวลาพักบ่อยๆบ้างนะ\nพักกาย พักใจ',
+  BLESSING_EN: '',
+  MORE_TH: 'มีอีกนิสนึงงงงง ✨️',
+  MORE_EN: "there's something more",
+
+  // Wish note
+  WISH_PROMPT_TH: 'ลองอวยพรสิครับ',
   WISH_PROMPT_EN: 'Make a wish',
-  WISH_PLACEHOLDER: 'พิมพ์คำอธิษฐานของเธอตรงนี้…\nType your wish here…',
+  WISH_PLACEHOLDER: 'พิมพ์คำอธิษฐานของพี่ตรงนี้…\nType your wish here…',
+  PRIVACY_TH: 'คำอธิษฐานนี้อยู่แค่ในโทรศัพท์ของพี่เท่านั้น\nไม่ถูกส่งไปไหน',
+  PRIVACY_EN: "Your wish stays on your phone. It's never sent anywhere.",
+  SEND_TH: 'ส่งคำอธิษฐานขึ้นฟ้า 🌟',
+  SEND_EN: 'send my wish to the sky',
 
-  ENDING_TH: 'ขอให้ทุกคำอธิษฐานของ Snow\nเดินทางไปถึงดวงดาวนะ',
+  // Ending
+  ENDING_TH: 'ขอให้ทุกคำอธิษฐานของพี่โน\nเดินทางไปถึงดวงดาวนะ',
   ENDING_EN: 'May every wish you make find its way to the stars.',
+  SIGNOFF: '❄ for Snow ❄',
 };
+// fill every [data-t] element from CONFIG; empty text hides the element
+function applyText() {
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const v = CONFIG[el.dataset.t] || '';
+    el.textContent = v; el.style.display = v ? '' : 'none';
+  });
+  const st = document.querySelector('#stepTxt'); st.textContent = CONFIG.RIBBON_1; st.style.display = CONFIG.RIBBON_1 ? '' : 'none';
+}
+applyText();
 /* ===================================================================== */
 
 const qs = new URLSearchParams(location.search);
@@ -924,7 +955,7 @@ async function completeTail(i) {
   if (i === 1) {
     const b = $('#band1');
     tween(600, e => { b.setAttribute('x', 34 + 116 * e); b.setAttribute('width', 232 * (1 - e)); b.style.opacity = 1 - e; });
-    $('#stepTxt').textContent = 'ริบบิ้นเส้นที่ 2 · ribbon 2 of 2';
+    $('#stepTxt').textContent = CONFIG.RIBBON_2;
     heroMode(null);
     await sleep(500);
     tails[2].on = true;
@@ -993,9 +1024,9 @@ async function firePopper(side) {
 async function celebration(instant) {
   scene = 'cele';
   buildTitle();
-  $('#thline').textContent = CONFIG.THAI_LINE;
+  $('#thline').textContent = CONFIG.THAI_LINE; $('#thline').style.display = CONFIG.THAI_LINE ? '' : 'none';
   $('#bless .bt').textContent = CONFIG.BLESSING_TH;
-  $('#bless .be').textContent = CONFIG.BLESSING_EN;
+  $('#bless .be').textContent = CONFIG.BLESSING_EN; $('#bless .be').style.display = CONFIG.BLESSING_EN ? '' : 'none';
   $('#cele').style.display = '';
   boxWrap.classList.add('small');
   heroMode(null);
@@ -1255,7 +1286,7 @@ function start() {
     if (jump === 'ribbon2') {
       letsOpen(true);
       const b = $('#band1'); b.style.opacity = 0; tails[1].done = true; tails[1].on = false; tails[1].op = 0; tails[1].el.classList.remove('on');
-      tails[2].on = true; grabbedOnce = true; $('#stepTxt').textContent = 'ริบบิ้นเส้นที่ 2 · ribbon 2 of 2';
+      tails[2].on = true; grabbedOnce = true; $('#stepTxt').textContent = CONFIG.RIBBON_2;
       heroSet(anchors.tail(2)); return;
     }
     $('#open').classList.add('hide');
