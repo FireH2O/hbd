@@ -100,10 +100,10 @@ body.ending #bgEnd{opacity:1}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 #thline{margin-top:10px;padding:0 16px;white-space:pre-line;line-height:1.35;font-family:'Mali';font-weight:600;font-size:clamp(19px,6vw,26px);color:#3b4a8c;opacity:0;transform:translateY(10px)}
 #thline.on{opacity:1;transform:none}
-#bless{margin:18px auto 0;width:min(86vw,380px);padding:16px 18px;border-radius:22px;background:rgba(255,255,255,.55);
+#bless{margin:18px auto 0;width:min(92vw,380px);padding:14px 12px;border-radius:22px;background:rgba(255,255,255,.55);
   border:1.5px solid rgba(255,255,255,.85);box-shadow:0 10px 30px rgba(120,150,220,.25);color:var(--ink);opacity:0;transform:translateY(14px)}
 #bless.on{opacity:1;transform:none}
-#bless .bt{font-family:'Mali';font-size:17px;line-height:1.6;white-space:pre-line}
+#bless .bt{font-family:'Mali';font-size:clamp(13.5px,4.3vw,17px);line-height:1.6;white-space:pre-line}
 #bless .be{font-size:15px;line-height:1.5;margin-top:8px;color:#4a5795}
 .btn{pointer-events:auto;display:inline-flex;flex-direction:column;align-items:center;gap:1px;border:0;cursor:pointer;
   padding:12px 26px;border-radius:99px;font:inherit;color:#fff;
@@ -205,6 +205,8 @@ body.bright #mute{background:rgba(80,110,190,.25)}
   background:#060a1c;color:#dff3ff;text-align:center;padding:20px}
 #rot .th{font-size:20px}
 @media (orientation:landscape) and (max-height:520px){#rot{display:flex}}
+@media (max-height:700px){#boxWrap.small{transform:translateX(-50%) scale(.55)}#bless{margin-top:12px}#thline{margin-top:6px}#more{margin-top:12px}}
+@media (max-height:600px){#boxWrap.small{transform:translateX(-50%) scale(.42)}#hb{font-size:clamp(34px,11vw,48px)}#cele{top:calc(var(--st) + 3%)}}
 #test{position:absolute;left:6px;bottom:calc(var(--sb) + 6px);z-index:60;display:none;flex-wrap:wrap;gap:4px;max-width:calc(100% - 12px)}
 #test.on{display:flex}
 #test button{font:11px system-ui;padding:5px 7px;border-radius:7px;border:0;background:rgba(255,255,255,.85);color:#123}
